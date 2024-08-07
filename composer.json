@@ -1,0 +1,23 @@
+{
+    "name": "integration/integration-pos",
+    "description": "Integracion a cajas - SDK",
+    "require": {
+        "php": ">=7.3.33",
+        "react/socket": "^1.16",
+        "react/event-loop": "^1.5",
+        "react/http": "^1.10",
+        "react/promise-timer": "^1.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Integration\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "atc"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
