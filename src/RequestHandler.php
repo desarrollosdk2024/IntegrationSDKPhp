@@ -1,8 +1,8 @@
 <?php
 
-namespace Integration;
+namespace IntegrationPos;
 
-use Integration\Util\Extensions;
+use IntegrationPos\Util\Extensions;
 use React\Promise\PromiseInterface;
 use Fig\Http\Message\StatusCodeInterface as StatusCode;
 

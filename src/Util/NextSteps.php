@@ -1,9 +1,9 @@
 <?php
 
-namespace Integration\Util;
+namespace IntegrationPos\Util;
 
-use Integration\Util\Extensions;
-use Integration\Util\Step;
+use IntegrationPos\Util\Extensions;
+use IntegrationPos\Util\Step;
 use stdClass;
 
 class NextSteps

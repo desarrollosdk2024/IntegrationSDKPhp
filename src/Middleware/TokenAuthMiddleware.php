@@ -1,5 +1,5 @@
 <?php
-namespace Integration\Middleware;
+namespace IntegrationPos\Middleware;
 
 use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Message\Response;

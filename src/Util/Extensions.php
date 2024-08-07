@@ -1,7 +1,7 @@
 <?php
-namespace Integration\Util;
+namespace IntegrationPos\Util;
 
-use Integration\Util\FieldsHelper;
+use IntegrationPos\Util\FieldsHelper;
 use InvalidArgumentException;
 class Extensions
 {

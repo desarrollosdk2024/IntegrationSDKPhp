@@ -1,6 +1,6 @@
 <?php
 
-namespace Integration;
+namespace IntegrationPos;
 
 date_default_timezone_set('America/La_Paz');
 
@@ -12,11 +12,11 @@ use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Message\Response;
 use Exception;
 
-use Integration\Util\NextSteps;
-use Integration\Util\Extensions;
-use Integration\Middleware\TimeoutMiddleware;
-use Integration\Middleware\TokenAuthMiddleware;
-use Integration\RequestHandler as Handler;
+use IntegrationPos\Util\NextSteps;
+use IntegrationPos\Util\Extensions;
+use IntegrationPos\Middleware\TimeoutMiddleware;
+use IntegrationPos\Middleware\TokenAuthMiddleware;
+use IntegrationPos\RequestHandler as Handler;
 use React\Promise\PromiseInterface;
 use React\Promise\Deferred;
 

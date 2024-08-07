@@ -1,6 +1,6 @@
 <?php
 
-namespace Integration\Util;
+namespace IntegrationPos\Util;
 
 class Step {
     public $action;
