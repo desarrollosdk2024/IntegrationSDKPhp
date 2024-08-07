@@ -1,5 +1,5 @@
 {
-    "name": "service/integration-pos",
+    "name": "integration-pos/service-tcp-ip",
     "description": "Integracion a cajas - SDK",
     "require": {
         "php": ">=7.3.33",
