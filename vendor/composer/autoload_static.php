@@ -29,7 +29,7 @@ class ComposerStaticInitb0ed4c15a0fa0f0269542a786fecae27
         ),
         'I' => 
         array (
-            'Integration\\' => 12,
+            'IntegrationPos\\' => 15,
         ),
         'F' => 
         array (
@@ -78,7 +78,7 @@ class ComposerStaticInitb0ed4c15a0fa0f0269542a786fecae27
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'Integration\\' => 
+        'IntegrationPos\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

@@ -1,5 +1,5 @@
 {
-    "name": "integration/integration-pos",
+    "name": "integration-pos/integration-pos",
     "description": "Integracion a cajas - SDK",
     "require": {
         "php": ">=7.3.33",
