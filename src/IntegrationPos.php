@@ -38,16 +38,16 @@ class IntegrationPos
     public $devicesConfig = [];
     private $connectedDevices = [];
     private $messageError = [
-        "000" => "Error: No hay tarjeta",
-        "001" => "Usuario canceló el ingreso de PIN",
-        "002" => "Error en el ingreso del PIN",
-        "003" => "Transacción declinada por tarjeta",
-        "004" => "Transacción no existe",
-        "005" => "Anulación no confirmada",
-        "006" => "Cierre de lote cancelada",
-        "007" => "Invalid unpacked data format",
-        "008" => "Tiene Cierre de lote pendiente",
-        "CODE0" => 'Transaccion procesada con exito'
+        "INVALID_FORMAT" => "Invalid unpacked data format",
+        "CLOUSURE_CANCELLED" => "Cierre de lote cancelada",
+        "CANCELED_NOT_CONFIRMED" => "Anulación no confirmada",
+        "NO_TRANSACTION" => "Transacción no existe",
+        "ERROR_PIN" => "Error en el ingreso del PIN",
+        "CANCEL_PIN" => "Usuario canceló el ingreso de PIN",
+        "CARD_DECLINED" => "Transacción declinada por tarjeta",
+        "READING_ERROR" => 'Error al leer la tarjeta',
+        "TIMEOUT_READING_ERROR" => 'Tiempo de espera al leer la tarjeta agotado.',
+        "QR_INVALID" => 'Proceso no valida.'
     ];
     /*
         private function __construct() {}
@@ -212,7 +212,7 @@ class IntegrationPos
 
     private function validConnectDevices($device)
     {
-      
+
         if (!isset($this->devicesConfig[$device])) {
             return (object) ['Status' => 'error', 'Message' => 'Device not configured'];
         }
@@ -313,20 +313,25 @@ class IntegrationPos
                             $this->executeStep($steps, 'step8', $client, $env);
                             $env->StepNext = 'step9';
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['002']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['ERROR_PIN']]));
                         }
                         break;
                     case 'step9':
-                        $unpackMessage = Extensions::unpackMessage($strReply);
-                        if (isset($unpackMessage['48'])) {
-                            $this->executeStep($steps, 'step10', $client, $env);
-                            $tempStep = $steps['step11'];
-                            $env->Name = $tempStep->name;
-                            $env->StepNext = 'step11';
-                            $this->sendMessageBoxToPos($tempStep->func->__invoke($importe), $client, $env);
-                            $env->StepNext = 'step12';
+
+                        if (Extensions::isNAck($strReply)) {
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['READING_ERROR']]));
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['000']]));
+                            $unpackMessage = Extensions::unpackMessage($strReply);
+                            if (isset($unpackMessage['48'])) {
+                                $this->executeStep($steps, 'step10', $client, $env);
+                                $tempStep = $steps['step11'];
+                                $env->Name = $tempStep->name;
+                                $env->StepNext = 'step11';
+                                $this->sendMessageBoxToPos($tempStep->func->__invoke($importe), $client, $env);
+                                $env->StepNext = 'step12';
+                            } else {
+                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['READING_ERROR']]));
+                            }
                         }
                         break;
                     case 'step12':
@@ -338,13 +343,13 @@ class IntegrationPos
                             $this->executeStep($steps, 'step14', $client, $env);
                             $env->StepNext = 'step17';
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['002']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['ERROR_PIN']]));
                         }
                         break;
                     case 'step17':
-                     
+
                         if (Extensions::isNAck($strReply)) {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['001']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['CANCEL_PIN']]));
                         } else {
                             $resps = $stepParams->func->__invoke($strReply);
                             $this->executeStep($steps, 'step18', $client, $env);
@@ -384,7 +389,11 @@ class IntegrationPos
 
                 switch ($env->StepNext) {
                     case 'step2': // Recepción de ACK
-                        $env->StepNext = 'step3';
+                        if (Extensions::isNAck($strReply)) {
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['QR_INVALID']]));
+                        } else {
+                            $env->StepNext = 'step3';
+                        }
                         break;
 
                     case 'step3': // Solicitud de datos
@@ -395,7 +404,7 @@ class IntegrationPos
                             $this->sendMessageBoxToPos($tempStep->func->__invoke($importe), $client, $env);
                             $env->StepNext = 'step6';
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['000']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['READING_ERROR']]));
                         }
                         break;
 
@@ -422,13 +431,13 @@ class IntegrationPos
                             $this->executeStep($steps, 'step11', $client, $env);
                             $env->StepNext = 'step12';
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['002']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['ERROR_PIN']]));
                         }
                         break;
 
                     case 'step12': // Respuesta del host
                         if (Extensions::isNAck($strReply)) {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['001']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['CANCEL_PIN']]));
                         } else {
                             $resp = $stepParams->func->__invoke($strReply);
                             $resp[] = ['name' => 'numberReference', 'value' => $env->numberReference];
@@ -484,7 +493,7 @@ class IntegrationPos
                             $this->sendMessageBoxToPos($tempStep->func->__invoke($importe), $client, $env);
                             $env->StepNext = 'step10';
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['000']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['READING_ERROR']]));
                         }
                         break;
                     case 'step10':
@@ -502,22 +511,24 @@ class IntegrationPos
                         $env->StepNext = 'step15';
                         break;
                     case 'step15':
-                        $unpackMessage = Extensions::unpackMessage($strReply);
-                        if (isset($unpackMessage['87'])) {
-                            $this->executeStep($steps, 'step16', $client, $env);
-                            $env->StepNext = 'step19';
+                        if (Extensions::isNAck($strReply)) {
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['TIMEOUT_READING_ERROR']]));
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['003']]));
+                            $unpackMessage = Extensions::unpackMessage($strReply);
+                            if (isset($unpackMessage['87'])) {
+                                $this->executeStep($steps, 'step16', $client, $env);
+                                $env->StepNext = 'step19';
+                            } else {
+                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['CARD_DECLINED']]));
+                            }
                         }
                         break;
                     case 'step19':
                         if (Extensions::isNAck($strReply)) {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['001']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['CANCEL_PIN']]));
                         } else {
                             $resps = $stepParams->func->__invoke($strReply);
-                            // $deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => $resps]));
                             $deferred->resolve($responseDelegate((object) ['Status' => ($resps->responseCode == "0" ? 'success' : "error"), 'Message' => FieldsHelper::GetPorCodigoRespuesta($resps->responseCode), 'Data' => $resps]));
-
                             $this->executeStep($steps, 'step20', $client, $env);
                         }
                         break;
@@ -564,7 +575,7 @@ class IntegrationPos
                         $unpackMessage = Extensions::unpackMessage($strReply);
                         if (isset($unpackMessage['48'])) {
                             if ($unpackMessage['48']['value'] !== '  ') {
-                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['004']]));
+                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['NO_TRANSACTION']]));
                                 $this->executeStep($steps, 'finish', $client, $env);
                                 $env->StepNext = 'finish';
                             } else {
@@ -573,13 +584,13 @@ class IntegrationPos
                                 $env->StepNext = 'step10';
                             }
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['004']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['NO_TRANSACTION']]));
                         }
                         break;
                     case 'step10':
                         $env->StepNext = 'step11';
                         if (Extensions::isNAck($strReply)) {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['005']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['CANCELED_NOT_CONFIRMED']]));
                             $this->executeStep($steps, 'finish', $client, $env);
                             $env->StepNext = 'finish';
                         }
@@ -587,7 +598,7 @@ class IntegrationPos
                     case 'step11':
                         if (Extensions::isNAck($strReply)) {
                             if (Extensions::isNAck($strReply)) {
-                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['005']]));
+                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['CANCELED_NOT_CONFIRMED']]));
                                 $this->executeStep($steps, 'finish', $client, $env);
                                 $env->StepNext = 'finish';
                             }
@@ -628,7 +639,7 @@ class IntegrationPos
                     case 'step2':
                         $env->StepNext = 'step3';
                         if (Extensions::isNAck($strReply)) {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['006']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['CLOUSURE_CANCELLED']]));
                             $this->executeStep($steps, 'finish', $client, $env);
                             $env->StepNext = 'finish';
                         }
@@ -685,7 +696,7 @@ class IntegrationPos
                 switch ($env->StepNext) {
                     case 'step2':
                         if (Extensions::isNAck($strReply)) {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['007']]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['INVALID_FORMAT']]));
                             $this->executeStep($steps, 'finish', $client, $env);
                             $env->StepNext = 'finish';
                             break;
