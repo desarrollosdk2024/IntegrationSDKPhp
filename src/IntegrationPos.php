@@ -212,8 +212,7 @@ class IntegrationPos
 
     private function validConnectDevices($device)
     {
-        var_dump($device);
-        var_dump($this->devicesConfig);
+      
         if (!isset($this->devicesConfig[$device])) {
             return (object) ['Status' => 'error', 'Message' => 'Device not configured'];
         }
