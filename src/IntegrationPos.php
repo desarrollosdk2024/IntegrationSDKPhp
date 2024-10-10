@@ -343,13 +343,12 @@ class IntegrationPos
                         }
                         break;
                     case 'step17':
-
+                     
                         if (Extensions::isNAck($strReply)) {
-                            $responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['001']]);
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['001']]));
                         } else {
                             $resps = $stepParams->func->__invoke($strReply);
                             $this->executeStep($steps, 'step18', $client, $env);
-
                             $deferred->resolve($responseDelegate((object) [
                                 'Status' => ($resps->responseCode == "0" ? 'success' : "error"),
                                 'Message' => FieldsHelper::GetPorCodigoRespuesta($resps->responseCode),

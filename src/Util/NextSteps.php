@@ -133,7 +133,7 @@ class NextSteps
             "step14" => new Step("receive", "06", "ACK", "", []),
             "step15" => new Step("receive", "10040", "Solicitud nueva pantalla PIN", "", [48, 87]),
             "step16" => new Step("send", "06", "ACK", "06", []),
-            "step17" => new Step(
+            "step19" => new Step(
                 "receive",
                 "10060",
                 "Respuesta del HOST de la venta realizada por contactless",
