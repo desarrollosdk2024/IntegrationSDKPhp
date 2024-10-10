@@ -84,7 +84,7 @@ class NextSteps
                 "",
                 [1, 40, 43, 44, 45, 46, 47, 48, 50, 51, 54, 61, 75],
                 function ($strReply) {
-                    return self::extractValues($strReply);
+                    return NextSteps::extractValues($strReply);
                 }
             ),
             "step18" => self::createSendStep("06", "ACK", "06"),
@@ -140,7 +140,7 @@ class NextSteps
                 "",
                 [1, 40, 43, 44, 45, 46, 47, 48, 50, 51, 54, 61, 75],
                 function ($strReply) {
-                    return self::extractValues($strReply);
+                    return NextSteps::extractValues($strReply);
                 }
             ),
             "step20" => new Step("send", "06", "ACK", "06", []),
@@ -192,7 +192,7 @@ class NextSteps
                 "",
                 [1, 40, 43, 45, 46, 47, 48, 50, 51, 54, 61],
                 function ($strReply) {
-                    return self::extractValues($strReply);
+                    return NextSteps::extractValues($strReply);
                 }
             ),
             "step13" => new Step("send", "06", "ACK", "06", []),
@@ -311,12 +311,12 @@ class NextSteps
      * @param string $strReply The string reply to extract values from.
      * @return stdClass The stdClass object containing the extracted values.
      */
-    function extractValues(string $strReply): stdClass
+   public static function extractValues(string $strReply): stdClass
     {
         $unpackedMessage = Extensions::unpackMessage($strReply);
         return array_reduce($unpackedMessage, function ($result, $item) {
             if (isset($item['name']) && isset($item['value'])) {
-                $result->{$item['name']} = $item['value'];
+                $result->{$item['name']} = empty($item['value']) ? "" : (string)$item['value'];
             }
             return $result;
         }, new stdClass());

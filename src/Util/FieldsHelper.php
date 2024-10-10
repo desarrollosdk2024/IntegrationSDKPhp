@@ -13,6 +13,81 @@ class Field
 
 class FieldsHelper
 {
+      private static $responses =  [
+    '0' => 'TRANS. APROBADA',
+    '1' => 'CONTACTE / BANCO',
+    '3' => 'COMERCIO INVALID',
+    '4' => 'TARJ. OBSERVADA',
+    '*default' => 'TRANS. RECHAZADA',
+    '7' => 'TARJ. OBSERVADA',
+    '12' => 'TRANS. INVALIDA',
+    '13' => 'MONTO INVALIDO',
+    '14' => 'TARJETA INVALIDA',
+    '17' => 'BANCO INVALIDA',
+    '19' => 'BANCO NO RESPOND',
+    '20' => 'RTA INVALIDA',
+    '30' => 'ERROR DE FORMATO',
+    '33' => 'TARJ. EXPIRADA',
+    '36' => 'TARJ.RESTRINGIDA',
+    '38' => 'EXCEDE INT. PIN',
+    '41' => 'TARJETA PERDIDA',
+    '42' => 'CUENTA NO ENCON.',
+    '43' => 'TARJETA PERDIDA',
+    '45' => 'DEPOSITE LOTE',
+    '50' => 'SIN RESPUESTA',
+    '51' => 'FONDOS INSUFICI.',
+    '08-10-11-15-16-32-34-37-39-40-52-53-56-57-59-60' => 'TRANS. RECHAZADA',
+    '54' => 'TARJETA VENCIDA',
+    '55' => 'PIN INVALIDO',
+    '58' => 'CUENTA NO ENCON.',
+    '61' => 'EXCEDE LIMITE',
+    '62' => 'TARJ. RESTRINGID',
+    '65' => 'EXCEDE LIMITE',
+    '67' => 'TARJETA OBSERVAD',
+    '68' => 'SIN RESPUESTA',
+    '75' => 'EXCEDE INT. PIN',
+    '76' => 'ERROR COD. PROD.',
+    '77' => 'ERROR DEPOSITO',
+    '78' => 'TRAMA NO ENCONT.',
+    '80' => 'LINEA DESCONECT.',
+    '81' => 'LINEA OCUPADA',
+    '82' => 'NO CONTESTA',
+    '83' => 'NO HAY TONO',
+    '84' => 'ERROR DE COMUN.',
+    '85' => 'LOTE NO ENCONTR.',
+    '87' => 'OPER. CANCELADA',
+    '88' => 'ERROR CONEXION',
+    '89' => 'TCP ERROR',
+    '90' => 'REVERSA PENDIENT',
+    '91' => 'BANCO NO RESPOND',
+    '92' => 'BANCO NO RESPOND',
+    '94' => 'TRAMA DUPLICADA',
+    '95' => 'TRANS. DE LOTES',
+    '96' => 'SIS. CON ERROR',
+    'AP' => 'TRANS. APROBADA',
+    'BL' => 'BATERIA BAJA',
+    'CN' => 'TRANS. CANCELADA',
+    'DE' => 'DATOS ERRONEOS',
+    'HO-NC' => 'INTENTE DE NUEVO',
+    'IP' => 'LLAMAR A ATC IP',
+    'IR' => 'LLAMAR A ATC IR',
+    'IS' => 'LLAMAR A ATC IS',
+    'IT' => 'LLAMAR A ATC IT',
+    'LC' => 'INTENTE DE NUEVO',
+    'LN' => 'NO HAY TONO',
+    'LO' => 'LINEA OCUPADA',
+    'MA' => 'DESLICE TARJETA',
+    'RE' => 'ERROR EN LA LECTURA',
+    'SB' => 'TARJETA BLOQUEAD',
+    'SC' => 'DESLICE TAJ.AMEX',
+    'SE' => 'ERROR DEL SISTEM',
+    'TA' => 'TRANS. ACEPTADA',
+    'TO' => 'INTENTE DE NUEVO',
+    'VS' => 'VERIFIQUE FIRMA',
+    'UC' => 'TJ. NO SOPORTADA',
+    'PR' => 'TRANS. PROCESADA',
+    '**' => 'BANCO INVALIDO'
+];
     private static $fields = [
         ['Id' => 1, 'Name' => 'Código de autorización', 'Length' => 6, 'Format' => 'ASCII', 'Alias' => 'authCode'],
         ['Id' => 30, 'Name' => 'BIN de la tarjeta', 'Length' => 12, 'Format' => 'ASCII', 'Alias' => 'cardBIN'],
@@ -94,6 +169,21 @@ class FieldsHelper
         }
         return $fields;
     }
+    
+    public static function GetPorCodigoRespuesta($codigo) {
+        // Recorremos las claves (códigos) del array de respuestas
+        foreach (self::$responses as $key => $message) {
+            // Dividimos la clave por el guion ('-'), obteniendo una lista de códigos
+            $codes = explode('-', $key);
+            // Si el código buscado se encuentra en la lista, retornamos el mensaje correspondiente
+            if (in_array($codigo, $codes)) {
+                return $message;
+            }
+        }
+        
+        // Si no se encuentra el código, devolvemos el mensaje por defecto (si existe) o un mensaje de error
+        return isset(self::$responses['*default']) ? self::$responses['*default'] : 'Código no encontrado';
+    }
 
     public static function GetFieldsLoad()
     {
@@ -115,6 +205,5 @@ class FieldsHelper
         return isset($fields[$id]) ? $fields[$id] : null;
     }
 }
-
 
 ?>

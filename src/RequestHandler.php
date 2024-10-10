@@ -37,10 +37,14 @@ class RequestHandler
         return $handleProcess((object) [
             'Logger' => $this->logger,
             'Device' => $body['Device'],
-            'Importe' => $body['Importe'],
+            'Importe' => sprintf('%.2f', $body['Importe']),
             'Response' => function ($result) use ($response) {
                 Extensions::logger("Message: " . $result->Message);
-                return $response(StatusCode::STATUS_OK, $result);
+                if ($result->Status == "error") {
+                    return $response(StatusCode::STATUS_BAD_REQUEST, $result);
+                } else {
+                    return $response(StatusCode::STATUS_OK, $result);
+                }
             },
         ]);
     }
@@ -62,10 +66,14 @@ class RequestHandler
         return $handleProcess((object) [
             'Logger' => $this->logger,
             'Device' => $body['Device'],
-            'Reference' => $body['Reference'] ?? '',
+            'Importe' => sprintf('%.2f', $body['Importe']),
             'Response' => function ($result) use ($response) {
                 Extensions::logger("Message: " . $result->Message);
-                return $response(StatusCode::STATUS_OK, $result);
+               if ($result->Status == "error") {
+                    return $response(StatusCode::STATUS_BAD_REQUEST, $result);
+                } else {
+                    return $response(StatusCode::STATUS_OK, $result);
+                }
             },
         ]);
     }
@@ -86,10 +94,15 @@ class RequestHandler
         return $handleProcess((object) [
             'Logger' => $this->logger,
             'Device' => $body['Device'],
-            'Data' => $body['Data'] ?? '',
+            //'Data' => $body['Data'] ?? '',
+            'Importe' => sprintf('%.2f', $body['Importe']),
             'Response' => function ($result) use ($response) {
                 Extensions::logger("Message: " . $result->Message);
-                return $response(StatusCode::STATUS_OK, $result);
+                if ($result->Status == "error") {
+                    return $response(StatusCode::STATUS_BAD_REQUEST, $result);
+                } else {
+                    return $response(StatusCode::STATUS_OK, $result);
+                }
             },
         ]);
     }
@@ -109,7 +122,11 @@ class RequestHandler
             'Device' => $body['Device'],
             'Response' => function ($result) use ($response) {
                 Extensions::logger("Message: " . $result->Message);
-                return $response(StatusCode::STATUS_OK, $result);
+                 if ($result->Status == "error") {
+                    return $response(StatusCode::STATUS_BAD_REQUEST, $result);
+                } else {
+                    return $response(StatusCode::STATUS_OK, $result);
+                }
             },
         ]);
     }
@@ -130,7 +147,11 @@ class RequestHandler
             'Device' => $body['Device'],
             'Response' => function ($result) use ($response) {
                 Extensions::logger("Message: " . $result->Message);
-                return $response(StatusCode::STATUS_OK, $result);
+                 if ($result->Status == "error") {
+                    return $response(StatusCode::STATUS_BAD_REQUEST, $result);
+                } else {
+                    return $response(StatusCode::STATUS_OK, $result);
+                }
             },
         ]);
     }
@@ -154,9 +175,12 @@ class RequestHandler
             'Reference' => $body['Reference'],
             'Response' => function ($result) use ($response) {
                 Extensions::logger("Message: " . $result->Message);
-                return $response(StatusCode::STATUS_OK, $result);
+                 if ($result->Status == "error") {
+                    return $response(StatusCode::STATUS_BAD_REQUEST, $result);
+                } else {
+                    return $response(StatusCode::STATUS_OK, $result);
+                }
             },
         ]);
     }
-
 }

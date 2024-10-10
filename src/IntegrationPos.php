@@ -14,6 +14,7 @@ use Exception;
 
 use IntegrationPos\Util\NextSteps;
 use IntegrationPos\Util\Extensions;
+use IntegrationPos\Util\FieldsHelper;
 use IntegrationPos\Middleware\TimeoutMiddleware;
 use IntegrationPos\Middleware\TokenAuthMiddleware;
 use IntegrationPos\RequestHandler as Handler;
@@ -45,7 +46,8 @@ class IntegrationPos
         "005" => "Anulación no confirmada",
         "006" => "Cierre de lote cancelada",
         "007" => "Invalid unpacked data format",
-        "008" => "Tiene Cierre de lote pendiente"
+        "008" => "Tiene Cierre de lote pendiente",
+        "CODE0" => 'Transaccion procesada con exito'
     ];
     /*
         private function __construct() {}
@@ -112,6 +114,7 @@ class IntegrationPos
                         if (!isset($body['Device'])) {
                             return $this->response(StatusCode::STATUS_BAD_GATEWAY, ['Status' => 'error', 'Message' => 'Device required']);
                         }
+
                         if (
                             !in_array($path, ['/api/chip', '/api/ctl', '/api/qr', '/api/lotclosing', '/api/initialization', '/api/annulment'])
                             || $method !== RequestMethod::METHOD_POST
@@ -209,7 +212,8 @@ class IntegrationPos
 
     private function validConnectDevices($device)
     {
-
+        var_dump($device);
+        var_dump($this->devicesConfig);
         if (!isset($this->devicesConfig[$device])) {
             return (object) ['Status' => 'error', 'Message' => 'Device not configured'];
         }
@@ -339,12 +343,18 @@ class IntegrationPos
                         }
                         break;
                     case 'step17':
+
                         if (Extensions::isNAck($strReply)) {
                             $responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['001']]);
                         } else {
                             $resps = $stepParams->func->__invoke($strReply);
                             $this->executeStep($steps, 'step18', $client, $env);
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => 'Transaccion procesada con exito', 'Data' => $resps]));
+
+                            $deferred->resolve($responseDelegate((object) [
+                                'Status' => ($resps->responseCode == "0" ? 'success' : "error"),
+                                'Message' => FieldsHelper::GetPorCodigoRespuesta($resps->responseCode),
+                                'Data' => $resps
+                            ]));
                         }
                         break;
                     default:
@@ -424,7 +434,9 @@ class IntegrationPos
                         } else {
                             $resp = $stepParams->func->__invoke($strReply);
                             $resp[] = ['name' => 'numberReference', 'value' => $env->numberReference];
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => $resp]));
+                            //$deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => $resp]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => ($resp->responseCode == "0" ? 'success' : "error"), 'Message' => FieldsHelper::GetPorCodigoRespuesta($resp->responseCode), 'Data' => $resp]));
+
                             $this->executeStep($steps, 'step13', $client, $env);
                         }
                         break;
@@ -505,7 +517,9 @@ class IntegrationPos
                             $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['001']]));
                         } else {
                             $resps = $stepParams->func->__invoke($strReply);
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => $resps]));
+                            // $deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => $resps]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => ($resps->responseCode == "0" ? 'success' : "error"), 'Message' => FieldsHelper::GetPorCodigoRespuesta($resps->responseCode), 'Data' => $resps]));
+
                             $this->executeStep($steps, 'step20', $client, $env);
                         }
                         break;
@@ -581,7 +595,8 @@ class IntegrationPos
                             }
                         } else {
                             $resp = $stepParams->func->__invoke($strReply);
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => $resp]));
+                            // $deferred->resolve($responseDelegate((object) ['Status' => 'success', 'Message' => $resp]));
+                            $deferred->resolve($responseDelegate((object) ['Status' => ($resp->responseCode == "0" ? 'success' : "error"), 'Message' => FieldsHelper::GetPorCodigoRespuesta($resp->responseCode), 'Data' => $resp]));
                             $this->executeStep($steps, 'step12', $client, $env);
                         }
                         break;

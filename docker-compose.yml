@@ -1,0 +1,18 @@
+
+version: '3.8'  # O la versión que estés usando
+
+services:
+  php-app:
+    build: .
+    ports:
+      - "5050:5050"
+    networks:
+      mi_red:
+        ipv4_address: 192.168.1.112  # Cambia esto a la IP que desees
+
+networks:
+  mi_red:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24  # Define la subred que deseas usar
