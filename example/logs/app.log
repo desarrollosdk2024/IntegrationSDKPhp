@@ -1,0 +1,439 @@
+[2024-11-20 09:20:41] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 09:22:16] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 09:22:16] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 09:32:47] INFO | Current connections: 1
+[2024-11-20 09:41:27] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 09:41:27] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 09:41:27] INFO | Client connected.
+[2024-11-20 09:41:27] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 09:41:27] INFO | Current connections: 1
+[2024-11-20 09:41:42] INFO | Client connected.
+[2024-11-20 09:41:42] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 09:41:42] INFO | Current connections: 2
+[2024-11-20 09:41:42] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 09:41:42] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 09:41:42] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 09:41:42] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:41:42] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 09:41:43] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 09:41:43] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 09:41:43] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:41:47] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 09:41:47] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:41:47] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3030303030303030313035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317B"}
+[2024-11-20 09:41:51] INFO | {"step":"step12","process":"Receiving POS: ACK"}
+[2024-11-20 09:41:51] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 09:41:51] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:42:00] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada"}
+[2024-11-20 09:42:00] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:42:00] INFO | Message: SIS. CON ERROR
+[2024-11-20 09:42:00] INFO | TCP connection closed.
+[2024-11-20 09:42:27] INFO | Client connected.
+[2024-11-20 09:42:27] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 09:42:27] INFO | Current connections: 2
+[2024-11-20 09:44:16] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 09:44:16] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 09:44:16] INFO | Client connected.
+[2024-11-20 09:44:16] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 09:44:16] INFO | Current connections: 1
+[2024-11-20 09:53:29] INFO | Client connected.
+[2024-11-20 09:53:29] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 09:53:29] INFO | Current connections: 2
+[2024-11-20 09:53:29] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 09:53:30] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 09:53:30] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 09:53:30] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:53:30] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 09:53:30] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 09:53:30] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 09:53:30] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:53:33] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 09:53:33] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:53:33] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3030303030303030313035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317B"}
+[2024-11-20 09:53:37] INFO | {"step":"step12","process":"Receiving POS: ACK"}
+[2024-11-20 09:53:37] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 09:53:37] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:53:45] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada"}
+[2024-11-20 09:53:45] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:53:45] INFO | Message: SIS. CON ERROR
+[2024-11-20 09:53:45] INFO | TCP connection closed.
+[2024-11-20 09:55:51] INFO | Client connected.
+[2024-11-20 09:55:51] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 09:55:51] INFO | Current connections: 2
+[2024-11-20 09:57:21] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 09:57:21] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 09:57:21] INFO | Client connected.
+[2024-11-20 09:57:22] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 09:57:22] INFO | Current connections: 1
+[2024-11-20 09:57:28] INFO | Client connected.
+[2024-11-20 09:57:28] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 09:57:28] INFO | Current connections: 2
+[2024-11-20 09:57:28] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 09:57:28] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 09:57:29] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 09:57:29] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:57:29] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 09:57:29] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 09:57:29] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 09:57:29] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:57:29] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 09:57:29] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:57:29] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3030303030303030313035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317B"}
+[2024-11-20 09:57:32] INFO | {"step":"step12","process":"Receiving POS: ACK"}
+[2024-11-20 09:57:33] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 09:57:33] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:57:41] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada"}
+[2024-11-20 09:57:41] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 09:57:41] INFO | Message: TRANS. APROBADA
+[2024-11-20 09:57:41] INFO | TCP connection closed.
+[2024-11-20 09:57:45] INFO | Client connected.
+[2024-11-20 09:57:45] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 09:57:45] INFO | Current connections: 2
+[2024-11-20 10:02:25] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 10:02:25] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 10:02:25] INFO | Client connected.
+[2024-11-20 10:02:25] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:02:25] INFO | Current connections: 1
+[2024-11-20 10:02:54] INFO | Client connected.
+[2024-11-20 10:02:54] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 10:02:54] INFO | Current connections: 2
+[2024-11-20 10:02:54] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:02:54] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 10:02:54] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 10:02:54] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:02:54] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 10:02:54] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 10:02:55] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 10:02:55] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:02:56] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 10:02:56] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:02:56] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3030303030303030313035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317B"}
+[2024-11-20 10:03:00] INFO | {"step":"step12","process":"Receiving POS: ACK"}
+[2024-11-20 10:03:00] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 10:03:00] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:04:03] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada"}
+[2024-11-20 10:04:03] INFO | Message: Usuario canceló el ingreso de PIN
+[2024-11-20 10:04:03] INFO | TCP connection closed.
+[2024-11-20 10:05:47] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 10:05:47] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 10:05:50] INFO | Client connected.
+[2024-11-20 10:05:50] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 10:05:50] INFO | Current connections: 1
+[2024-11-20 10:05:50] INFO | Message: Device not configured
+[2024-11-20 10:06:00] INFO | Client connected.
+[2024-11-20 10:06:00] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:06:00] INFO | Current connections: 2
+[2024-11-20 10:06:02] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:06:02] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:06:03] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343233391c3438000220200303"}
+[2024-11-20 10:06:03] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:06:03] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 10:06:03] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:06:03] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 10:06:03] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:06:05] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 10:06:05] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:06:05] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3030303030303030313035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317B"}
+[2024-11-20 10:06:09] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:06:09] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 10:06:09] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:06:17] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"02021936303030303030303030313030302020331c303100063930343835361c3430000c3030303030303030313035301c343300063030343234301c3434000c3433323531303030343234301c3435000830353437303830331c34360004313132301c34370004313030361c3438000230301c3530000230311c3531000230301c35340004313031311c363100453030303030303020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020201c37350006343635393830034b"}
+[2024-11-20 10:06:17] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:06:17] INFO | Message: TRANS. APROBADA
+[2024-11-20 10:06:17] INFO | TCP connection closed.
+[2024-11-20 10:08:23] INFO | Client connected.
+[2024-11-20 10:08:23] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:08:23] INFO | Current connections: 2
+[2024-11-20 10:09:43] INFO | TCP connection closed.
+[2024-11-20 10:09:43] INFO | Client connected.
+[2024-11-20 10:09:43] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 10:09:43] INFO | Current connections: 2
+[2024-11-20 10:09:43] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:09:43] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:09:43] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234301c343800022020030d"}
+[2024-11-20 10:09:43] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:09:43] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 10:09:43] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:09:43] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 10:09:43] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:09:43] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 10:09:43] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:09:43] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3030303030303132313035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C383800013178"}
+[2024-11-20 10:09:47] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:09:47] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 10:09:47] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:09:56] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"02021936303030303030303030313030302020331c303100063930343836321c3430000c3030303030303132313035301c343300063030343234311c3434000c3433323531303030343234311c3435000830353437303830331c34360004313132301c34370004313030391c3438000230301c3530000230311c3531000230301c35340004313031311c363100453030303030303020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020201c373500063436353938300340"}
+[2024-11-20 10:09:56] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:09:56] INFO | Message: TRANS. APROBADA
+[2024-11-20 10:09:56] INFO | TCP connection closed.
+[2024-11-20 10:11:59] INFO | Client connected.
+[2024-11-20 10:11:59] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:11:59] INFO | Current connections: 2
+[2024-11-20 10:18:09] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 10:18:09] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 10:18:09] INFO | Client connected.
+[2024-11-20 10:18:09] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:18:09] INFO | Current connections: 1
+[2024-11-20 10:34:56] INFO | Client connected.
+[2024-11-20 10:34:56] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 10:34:56] INFO | Current connections: 2
+[2024-11-20 10:34:56] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:34:56] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:34:56] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234311c343800022020030c"}
+[2024-11-20 10:34:56] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:34:56] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 10:34:56] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:34:56] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 10:34:56] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:34:57] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 10:34:57] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:34:57] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3031323130313030313030301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317D"}
+[2024-11-20 10:35:00] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:35:00] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 10:35:00] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:35:08] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"02021936303030303030303030313030302020331c303100060000000000001c3430000c3031323130313030313030301c343300063030343234321c3434000c3433323531303030343234321c3435000830353437303830331c34360004313132301c34370004313033341c3438000235311c3530000230311c3531000230301c35340004313031311c36310045464f4e444f5320494e535546492e202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020201c373500063436353938300341"}
+[2024-11-20 10:35:08] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:35:08] INFO | Message: FONDOS INSUFICI.
+[2024-11-20 10:35:08] INFO | TCP connection closed.
+[2024-11-20 10:35:21] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:35:27] INFO | Client connected.
+[2024-11-20 10:35:27] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:35:27] INFO | Current connections: 2
+[2024-11-20 10:35:35] INFO | TCP connection closed.
+[2024-11-20 10:35:36] INFO | Client connected.
+[2024-11-20 10:35:36] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 10:35:36] INFO | Current connections: 2
+[2024-11-20 10:35:36] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:35:36] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:35:36] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234311c343800022020030c"}
+[2024-11-20 10:35:36] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:35:36] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 10:35:36] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:35:36] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 10:35:36] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:35:39] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 10:35:39] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:35:39] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C313231303231323132313030313030301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317F"}
+[2024-11-20 10:35:43] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:35:44] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 10:35:44] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:35:52] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"02021936303030303030303030313030302020331c303100060000000000001c3430000c3132313032313231323130301c343300063030343234331c3434000c3433323531303030343234331c3435000830353437303830331c34360004313132301c34370004313033351c3438000235311c3530000230311c3531000230301c35340004313031311c36310045464f4e444f5320494e535546492e202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020201c373500063436353938300343"}
+[2024-11-20 10:35:52] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:35:52] INFO | Message: FONDOS INSUFICI.
+[2024-11-20 10:35:52] INFO | TCP connection closed.
+[2024-11-20 10:36:05] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:36:07] INFO | Client connected.
+[2024-11-20 10:36:07] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:36:07] INFO | Current connections: 2
+[2024-11-20 10:36:11] INFO | TCP connection closed.
+[2024-11-20 10:36:11] INFO | Client connected.
+[2024-11-20 10:36:11] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 10:36:11] INFO | Current connections: 2
+[2024-11-20 10:36:12] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 10:36:12] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:36:12] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234311c343800022020030c"}
+[2024-11-20 10:36:12] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:36:12] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 10:36:12] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:36:12] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 10:36:12] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:36:15] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 10:36:15] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:36:15] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C393232333337323033363835343737353830371C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C383800013145"}
+[2024-11-20 10:36:18] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 10:36:18] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 10:36:18] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:36:27] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"02021936303030303030303030313030302020331c303100060000000000001c3430000c3932323333373230333638351c343300063030343234341c3434000c3433323531303030343234341c3435000830353437303830331c34360004313132301c34370004313033361c3438000235311c3530000230311c3531000230301c35340004313031311c36310045464f4e444f5320494e535546492e202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020201c373500063436353938300345"}
+[2024-11-20 10:36:27] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 10:36:27] INFO | Message: FONDOS INSUFICI.
+[2024-11-20 10:36:27] INFO | TCP connection closed.
+[2024-11-20 10:38:29] INFO | Client connected.
+[2024-11-20 10:38:29] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 10:38:29] INFO | Current connections: 2
+[2024-11-20 11:28:54] INFO | TCP connection closed.
+[2024-11-20 11:28:54] INFO | Client connected.
+[2024-11-20 11:28:54] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 11:28:54] INFO | Current connections: 2
+[2024-11-20 11:28:54] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 11:28:54] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 11:28:55] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234311c343800022020030c"}
+[2024-11-20 11:28:55] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:28:55] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 11:28:55] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 11:28:55] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 11:28:55] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:28:55] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 11:28:55] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:28:55] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C393232333337323033363835343737353830371C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C383800013145"}
+[2024-11-20 11:28:59] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 11:28:59] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 11:28:59] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:08] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"15"}
+[2024-11-20 11:29:08] INFO | Message: Usuario canceló el ingreso de PIN
+[2024-11-20 11:29:08] INFO | TCP connection closed.
+[2024-11-20 11:29:11] INFO | Client connected.
+[2024-11-20 11:29:11] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 11:29:11] INFO | Current connections: 2
+[2024-11-20 11:29:27] INFO | {"step":"step1","process":"Sent to POS: Solicitud de conexi\u00f3n de una venta por contactless","message":"02001736303030303030303030313030363030300325"}
+[2024-11-20 11:29:27] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:27] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 11:29:27] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:27] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 11:29:27] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:27] INFO | {"step":"step7","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 11:29:27] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:27] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"02007736303030303030303030313030303030321C3430000C3030303030303030313035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317B"}
+[2024-11-20 11:29:31] INFO | {"step":"step10","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:31] INFO | {"step":"step11","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 11:29:31] INFO | {"step":"step12","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:31] INFO | {"step":"step13","process":"Sent to POS: Tipo de lectura de la tarjeta","message":"02001736303030303030303030313030363030310324"}
+[2024-11-20 11:29:31] INFO | {"step":"step14","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:33] INFO | {"step":"step15","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 11:29:33] INFO | {"step":"step16","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:36] INFO | {"step":"step19","process":"Receiving POS: Respuesta del HOST de la venta realizada por contactless"}
+[2024-11-20 11:29:36] INFO | Message: TRANS. APROBADA
+[2024-11-20 11:29:36] INFO | {"step":"step20","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:36] INFO | TCP connection closed.
+[2024-11-20 11:29:38] INFO | Client connected.
+[2024-11-20 11:29:38] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 11:29:38] INFO | Current connections: 2
+[2024-11-20 11:29:48] INFO | {"step":"step1","process":"Sent to POS: Solicitud de conexi\u00f3n de una venta por contactless","message":"02001736303030303030303030313030363030300325"}
+[2024-11-20 11:29:48] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:48] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 11:29:48] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:48] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 11:29:48] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:49] INFO | {"step":"step7","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 11:29:49] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:49] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"02007736303030303030303030313030303030321C3430000C3030303030303035303035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317F"}
+[2024-11-20 11:29:52] INFO | {"step":"step10","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:52] INFO | {"step":"step11","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 11:29:52] INFO | {"step":"step12","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:52] INFO | {"step":"step13","process":"Sent to POS: Tipo de lectura de la tarjeta","message":"02001736303030303030303030313030363030310324"}
+[2024-11-20 11:29:52] INFO | {"step":"step14","process":"Receiving POS: ACK"}
+[2024-11-20 11:29:53] INFO | {"step":"step15","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 11:29:53] INFO | {"step":"step16","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 11:29:59] INFO | {"step":"step19","process":"Receiving POS: Respuesta del HOST de la venta realizada por contactless"}
+[2024-11-20 11:29:59] INFO | Message: Usuario canceló el ingreso de PIN
+[2024-11-20 11:29:59] INFO | TCP connection closed.
+[2024-11-20 11:30:01] INFO | Client connected.
+[2024-11-20 11:30:01] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 11:30:01] INFO | Current connections: 2
+[2024-11-20 13:06:46] INFO | TCP connection closed.
+[2024-11-20 13:06:47] INFO | Client connected.
+[2024-11-20 13:06:47] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 13:06:47] INFO | Current connections: 2
+[2024-11-20 13:07:06] INFO | Logger configurado en: D:\REDENLACE\DELL_CAJAS\IntegrationSDKPhp\example/logs/app.log
+[2024-11-20 13:07:06] INFO | Started server on port TCP-IP: 5050
+[2024-11-20 13:07:07] INFO | Client connected.
+[2024-11-20 13:07:07] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 13:07:07] INFO | Current connections: 1
+[2024-11-20 13:07:11] INFO | Client connected.
+[2024-11-20 13:07:11] INFO | ** New connection ** IP: 192.168.1.111
+[2024-11-20 13:07:11] INFO | Current connections: 2
+[2024-11-20 13:07:11] INFO | {"step":"step1","process":"Sent to POS: Solicitud de conexi\u00f3n de una venta por contactless","message":"02001736303030303030303030313030363030300325"}
+[2024-11-20 13:07:11] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:11] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 13:07:11] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:11] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 13:07:11] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:12] INFO | {"step":"step7","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 13:07:12] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:12] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"02007736303030303030303030313030303030321C3430000C3030303030303035303035301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317F"}
+[2024-11-20 13:07:15] INFO | {"step":"step10","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:15] INFO | {"step":"step11","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 13:07:15] INFO | {"step":"step12","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:15] INFO | {"step":"step13","process":"Sent to POS: Tipo de lectura de la tarjeta","message":"02001736303030303030303030313030363030310324"}
+[2024-11-20 13:07:15] INFO | {"step":"step14","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:17] INFO | {"step":"step15","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 13:07:17] INFO | {"step":"step16","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:27] INFO | {"step":"step19","process":"Receiving POS: Respuesta del HOST de la venta realizada por contactless"}
+[2024-11-20 13:07:27] INFO | Message: Usuario canceló el ingreso de PIN
+[2024-11-20 13:07:27] INFO | TCP connection closed.
+[2024-11-20 13:07:28] INFO | Client connected.
+[2024-11-20 13:07:28] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 13:07:28] INFO | Current connections: 2
+[2024-11-20 13:07:33] INFO | {"step":"step1","process":"Sent to POS: Solicitud de conexi\u00f3n de una venta por contactless","message":"02001736303030303030303030313030363030300325"}
+[2024-11-20 13:07:33] INFO | {"step":"step2","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:33] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n"}
+[2024-11-20 13:07:33] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:33] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 13:07:33] INFO | {"step":"step6","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:33] INFO | {"step":"step7","process":"Receiving POS: Solicitud de datos"}
+[2024-11-20 13:07:33] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:33] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"02007736303030303030303030313030303030321C3430000C3030303030303030303535301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317F"}
+[2024-11-20 13:07:37] INFO | {"step":"step10","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:37] INFO | {"step":"step11","process":"Receiving POS: Solicitud nueva pantalla"}
+[2024-11-20 13:07:37] INFO | {"step":"step12","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:37] INFO | {"step":"step13","process":"Sent to POS: Tipo de lectura de la tarjeta","message":"02001736303030303030303030313030363030310324"}
+[2024-11-20 13:07:37] INFO | {"step":"step14","process":"Receiving POS: ACK"}
+[2024-11-20 13:07:38] INFO | {"step":"step15","process":"Receiving POS: Solicitud nueva pantalla PIN"}
+[2024-11-20 13:07:38] INFO | {"step":"step16","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:41] INFO | {"step":"step19","process":"Receiving POS: Respuesta del HOST de la venta realizada por contactless"}
+[2024-11-20 13:07:41] INFO | Message: TRANS. APROBADA
+[2024-11-20 13:07:41] INFO | {"step":"step20","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:41] INFO | TCP connection closed.
+[2024-11-20 13:07:44] INFO | Client connected.
+[2024-11-20 13:07:44] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 13:07:44] INFO | Current connections: 2
+[2024-11-20 13:07:48] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 13:07:48] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:07:49] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234361c343800022020030b"}
+[2024-11-20 13:07:49] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:49] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 13:07:49] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:07:49] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 13:07:49] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:53] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 13:07:53] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:53] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C393232333337323033363835343737353830371C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C383800013145"}
+[2024-11-20 13:07:57] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:07:57] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 13:07:57] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:07:57] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"15"}
+[2024-11-20 13:07:57] INFO | Message: Usuario canceló el ingreso de PIN
+[2024-11-20 13:07:57] INFO | TCP connection closed.
+[2024-11-20 13:08:02] INFO | Client connected.
+[2024-11-20 13:08:02] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 13:08:02] INFO | Current connections: 2
+[2024-11-20 13:08:22] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 13:08:22] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:08:23] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234361c343800022020030b"}
+[2024-11-20 13:08:23] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:08:23] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 13:08:23] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:08:23] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 13:08:23] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:08:26] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 13:08:26] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:08:26] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C393232333337323033363835343737353830371C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C383800013145"}
+[2024-11-20 13:08:29] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:08:29] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 13:08:29] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:08:46] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"15"}
+[2024-11-20 13:08:46] INFO | Message: Usuario canceló el ingreso de PIN
+[2024-11-20 13:08:46] INFO | TCP connection closed.
+[2024-11-20 13:08:49] INFO | Client connected.
+[2024-11-20 13:08:49] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 13:08:49] INFO | Current connections: 2
+[2024-11-20 13:08:50] INFO | {"step":"step1","process":"Sent to POS: Transacci\u00f3n de solicitud de conexi\u00f3n","message":"02001736303030303030303030313030303030300323"}
+[2024-11-20 13:08:50] INFO | {"step":"step2","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:08:51] INFO | {"step":"step3","process":"Receiving POS: \u00daltima transacci\u00f3n","message":"02003536303030303030303030313030302020311c343300063030343234361c343800022020030b"}
+[2024-11-20 13:08:51] INFO | {"step":"step4","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:08:51] INFO | {"step":"step5","process":"Sent to POS: Transacci\u00f3n No reverso","message":"02002436303030303030303030313030303030311C3438000258580303"}
+[2024-11-20 13:08:51] INFO | {"step":"step6","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:08:51] INFO | {"step":"step7","process":"Receiving POS: Solicitud nueva pantalla","message":"02003136303030303030303030313030342020301c3438000220201c3837000212010311"}
+[2024-11-20 13:08:51] INFO | {"step":"step8","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:08:52] INFO | {"step":"step9","process":"Receiving POS: Solicitud de datos","message":"02002436303030303030303030313030302020321c3438000220200300"}
+[2024-11-20 13:08:52] INFO | {"step":"step10","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:08:52] INFO | {"step":"step11","process":"Sent to POS: Transacci\u00f3n de env\u00edo de datos","message":"02007736303030303030303030313030303030321C3430000C3030303030303030313030301C3432000A313233202020202020201C3438000220201C3533000A313233343536202020201C38380001317E"}
+[2024-11-20 13:08:56] INFO | {"step":"step12","process":"Receiving POS: ACK","message":"06"}
+[2024-11-20 13:08:56] INFO | {"step":"step13","process":"Receiving POS: Solicitud nueva pantalla PIN","message":"02003136303030303030303030313030342020301c3438000220201c3837000212020312"}
+[2024-11-20 13:08:56] INFO | {"step":"step14","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:09:05] INFO | {"step":"step17","process":"Receiving POS: Respuesta del HOST de la venta realizada","message":"02021936303030303030303030313030302020331c303100063930353039331c3430000c3030303030303030313030301c343300063030343234371c3434000c3433323531333030343234371c3435000830353437303830331c34360004313132301c34370004313330381c3438000230301c3530000230311c3531000230301c35340004313031311c363100453030303030303020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020201c373500063436353938300340"}
+[2024-11-20 13:09:05] INFO | {"step":"step18","process":"Sent to POS: ACK","message":"06"}
+[2024-11-20 13:09:05] INFO | Message: TRANS. APROBADA
+[2024-11-20 13:09:05] INFO | TCP connection closed.
+[2024-11-20 13:11:11] INFO | Client connected.
+[2024-11-20 13:11:11] INFO | ** New connection ** IP: 192.168.1.181
+[2024-11-20 13:11:11] INFO | Current connections: 2
