@@ -20,7 +20,7 @@ use IntegrationPos\Middleware\TokenAuthMiddleware;
 use IntegrationPos\RequestHandler as Handler;
 use React\Promise\PromiseInterface;
 use React\Promise\Deferred;
-
+use IntegrationPos\Util\Logger;
 use Fig\Http\Message\RequestMethodInterface as RequestMethod;
 use Fig\Http\Message\StatusCodeInterface as StatusCode;
 
@@ -31,12 +31,15 @@ class IntegrationPos
     private $HOST;
     public $app;
     private $server;
-    private $timeout = 120;
+    private $timeout = 180;
     private $loop;
     private $logger = true;
     private $validToken = '';
     public $devicesConfig = [];
     private $connectedDevices = [];
+
+        private $loggerPath;
+        
     private $messageError = [
         "INVALID_FORMAT" => "Invalid unpacked data format",
         "CLOUSURE_CANCELLED" => "Cierre de lote cancelada",
@@ -47,7 +50,8 @@ class IntegrationPos
         "CARD_DECLINED" => "Transacción declinada por tarjeta",
         "READING_ERROR" => 'Error al leer la tarjeta',
         "TIMEOUT_READING_ERROR" => 'Tiempo de espera al leer la tarjeta agotado.',
-        "QR_INVALID" => 'Proceso no valida.'
+        "QR_INVALID" => 'Proceso no valida.',
+        "ERROR_PROCESSING"=>"Error de procesamiento del mensaje"
     ];
     /*
         private function __construct() {}
@@ -70,7 +74,13 @@ class IntegrationPos
         }
         return null;
     }
-
+   public function setupLogging($logPath)
+    {
+        // Configurar la ruta del logger
+        $this->loggerPath = $logPath;
+        Logger::configure($logPath);
+        Logger::info("Logger configurado en: $logPath");
+    }
     public function setToken($Token)
     {
         $this->validToken = $Token;
@@ -187,26 +197,26 @@ class IntegrationPos
         try {
             $tcpServer = new SocketServer("{$this->HOST}:{$this->PORT}", [], $this->loop);
             $tcpServer->on('connection', function ($client) {
-                Extensions::logger("Client connected.");
+                Logger::info("Client connected.");
                 $ip = $this->extractIpFromAddress($client->getRemoteAddress());
                 if (!$this->isBlockedAddress($ip)) {
-                    Extensions::logger("** New connection ** IP: {$ip}");
+                    Logger::info("** New connection ** IP: {$ip}");
                     $this->connectedDevices[$ip] = [
                         'TcpClient' => $client,
                         'Env' => (object) ['Logger' => false, 'StepNext' => 'step0', 'Name' => '------']
                     ];
-                    Extensions::logger("Current connections: " . count($this->connectedDevices));
+                    Logger::info("Current connections: " . count($this->connectedDevices));
                 }
                 $client->on('close', function () {
-                    Extensions::logger("TCP connection closed.");
+                    Logger::info("TCP connection closed.");
                 });
             });
 
             $this->server->listen($tcpServer);
-            Extensions::logger("Started server on port TCP-IP: {$this->PORT}");
+            Logger::info("Started server on port TCP-IP: {$this->PORT}");
             $this->loop->run();
         } catch (Exception $e) {
-            Extensions::logger("Error starting server: " . $e->getMessage());
+            Logger::info("Error starting server: " . $e->getMessage());
         }
     }
 
@@ -242,7 +252,7 @@ class IntegrationPos
             $env->StepNext = $step;
             $this->sendMessageBoxToPos($stepParams->message, $socket, $env);
         } else {
-            Extensions::logger("Step not found.");
+            Logger::info("Step not found.");
         }
     }
 
@@ -251,7 +261,7 @@ class IntegrationPos
         $buffer = Extensions::HexStringToByteArray($msg);
         $socket->write($buffer);
         if ($env->Logger) {
-            Extensions::logger(json_encode(['step' => $env->StepNext, 'process' => "Sent to POS: " . $env->Name, 'message' => $msg]));
+            Logger::info(json_encode(['step' => $env->StepNext, 'process' => "Sent to POS: " . $env->Name, 'message' => $msg]));
         }
     }
     private function transactionMiddleware($config, callable $next): PromiseInterface
@@ -272,7 +282,7 @@ class IntegrationPos
         try {
             $next($client, $env, $responseDelegate, $deferred);
         } catch (Exception $e) {
-            Extensions::logger($e->getMessage());
+            Logger::info($e->getMessage());
             $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $e->getMessage()]));
         }
 
@@ -291,8 +301,13 @@ class IntegrationPos
             $this->handleData($client, function ($strReply) use (&$env, &$steps, &$client, &$responseDelegate, &$importe, &$deferred) {
                 $step = $env->StepNext;
                 $stepParams = $steps[$step] ?? null;
+                if(empty($stepParams)) {
+                   Logger::info(json_encode(['step' => $env->StepNext,
+                    'process' => "Receiving POS: " . ($stepParams->name ?? ''),
+                    'message' => "El valor de  esta vacio strReply"])); 
+                }
                 if ($env->Logger) {
-                    Extensions::logger(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? '')]));
+                    Logger::info(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''),'message' => $strReply]));
                 }
                 switch ($env->StepNext) {
                     case 'step2':
@@ -307,13 +322,17 @@ class IntegrationPos
                         $env->StepNext = 'step7';
                         break;
                     case 'step7':
-                        $unpackMessage = Extensions::unpackMessage($strReply);
-
-                        if ($unpackMessage['87']['value'] === '1201') {
-                            $this->executeStep($steps, 'step8', $client, $env);
-                            $env->StepNext = 'step9';
+                        if (Extensions::isNAck($strReply)) {
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['ERROR_PROCESSING']]));
                         } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['ERROR_PIN']]));
+                            $unpackMessage = Extensions::unpackMessage($strReply);
+
+                            if ($unpackMessage['87']['value'] === '1201') {
+                                $this->executeStep($steps, 'step8', $client, $env);
+                                $env->StepNext = 'step9';
+                            } else {
+                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['ERROR_PIN']]));
+                            }
                         }
                         break;
                     case 'step9':
@@ -361,7 +380,7 @@ class IntegrationPos
                         }
                         break;
                     default:
-                        Extensions::logger("Unknown step: {$env->StepNext}");
+                        Logger::info("Unknown step: {$env->StepNext}");
                         break;
                 }
             });
@@ -384,7 +403,7 @@ class IntegrationPos
                 $stepParams = $steps[$step] ?? null;
 
                 if ($env->Logger) {
-                    Extensions::logger(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
+                    Logger::info(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
                 }
 
                 switch ($env->StepNext) {
@@ -413,6 +432,7 @@ class IntegrationPos
                         break;
 
                     case 'step7': // Solicitud de nueva pantalla
+                    
                         $unpackMessage = Extensions::unpackMessage($strReply);
                         if ($unpackMessage['48']['value'] === '  ') {
                             $env->numberReference = $unpackMessage['43']['value'];
@@ -449,7 +469,7 @@ class IntegrationPos
                         break;
 
                     default:
-                        Extensions::logger("Unknown step: {$env->StepNext}");
+                        Logger::info("Unknown step: {$env->StepNext}");
                         break;
                 }
             });
@@ -470,7 +490,7 @@ class IntegrationPos
                 $stepParams = $steps[$step] ?? null;
 
                 if ($env->Logger) {
-                    Extensions::logger(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? '')]));
+                    Logger::info(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? '')]));
                 }
 
                 switch ($env->StepNext) {
@@ -486,26 +506,32 @@ class IntegrationPos
                         $env->StepNext = 'step7';
                         break;
                     case 'step7':
-                        $unpackMessage = Extensions::unpackMessage($strReply);
-                        if (isset($unpackMessage['48'])) {
-                            $this->executeStep($steps, 'step8', $client, $env);
-                            $tempStep = $steps['step9'];
-                            $this->sendMessageBoxToPos($tempStep->func->__invoke($importe), $client, $env);
-                            $env->StepNext = 'step10';
-                        } else {
-                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['READING_ERROR']]));
-                        }
+                        
+                            $unpackMessage = Extensions::unpackMessage($strReply);
+                            if (isset($unpackMessage['48'])) {
+                                $this->executeStep($steps, 'step8', $client, $env);
+                                $tempStep = $steps['step9'];
+                                $this->sendMessageBoxToPos($tempStep->func->__invoke($importe), $client, $env);
+                                $env->StepNext = 'step10';
+                            } else {
+                                $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['READING_ERROR']]));
+                            }
+                       
                         break;
                     case 'step10':
                         $env->StepNext = 'step11';
                         break;
                     case 'step11':
-                        $unpackMessage = Extensions::unpackMessage($strReply);
-                        if ($unpackMessage['87']['value'] === '1201') {
-                            $this->executeStep($steps, 'step12', $client, $env);
-                            $this->executeStep($steps, 'step13', $client, $env);
-                            $env->StepNext = 'step14';
-                        }
+                       if (Extensions::isNAck($strReply)) {
+                            $deferred->resolve($responseDelegate((object) ['Status' => 'error', 'Message' => $this->messageError['ERROR_PROCESSING']]));
+                        } else {
+                            $unpackMessage = Extensions::unpackMessage($strReply);
+                            if ($unpackMessage['87']['value'] === '1201') {
+                                $this->executeStep($steps, 'step12', $client, $env);
+                                $this->executeStep($steps, 'step13', $client, $env);
+                                $env->StepNext = 'step14';
+                            }
+                         }
                         break;
                     case 'step14':
                         $env->StepNext = 'step15';
@@ -533,7 +559,7 @@ class IntegrationPos
                         }
                         break;
                     default:
-                        Extensions::logger("Unknown step: {$env->StepNext}");
+                        Logger::info("Unknown step: {$env->StepNext}");
                         break;
                 }
             });
@@ -555,7 +581,7 @@ class IntegrationPos
                 $stepParams = $steps[$step] ?? null;
 
                 if ($env->Logger) {
-                    Extensions::logger(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
+                    Logger::info(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
                 }
 
                 switch ($env->StepNext) {
@@ -632,7 +658,7 @@ class IntegrationPos
                 $unpackMessage = Extensions::unpackMessage($strReply);
 
                 if ($env->Logger) {
-                    Extensions::logger(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
+                    Logger::info(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
                 }
 
                 switch ($env->StepNext) {
@@ -691,7 +717,7 @@ class IntegrationPos
                 $unpackMessage = Extensions::unpackMessage($strReply);
 
                 if ($env->Logger) {
-                    Extensions::logger(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
+                    Logger::info(json_encode(['step' => $env->StepNext, 'process' => "Receiving POS: " . ($stepParams->name ?? ''), 'message' => $strReply]));
                 }
                 switch ($env->StepNext) {
                     case 'step2':
@@ -732,7 +758,7 @@ class IntegrationPos
     {
         if ($client !== null) {
             $client->close();
-            Extensions::logger("Closed Connection\n");
+            Logger::info("Closed Connection\n");
         }
     }
 }

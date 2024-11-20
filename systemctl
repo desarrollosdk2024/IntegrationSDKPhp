@@ -1,0 +1,40 @@
+Ejecuta los siguientes comandos.
+
+sudo vi /etc/systemd/system/integrationpos.service
+
+copiar el contenidos:
+
+[Unit]
+Description=Servicio PHP para IntegrationPOS
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/php /opt/IntegrationPOS/server.php
+WorkingDirectory=/opt/IntegrationPOS
+StandardOutput=journal
+StandardError=journal
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+siguientes comandos para activar el servicio:
+
+sudo systemctl daemon-reload
+sudo systemctl start integrationpos.service
+sudo systemctl enable integrationpos.service
+sudo systemctl status integrationpos.service
+
+
+El comando es para ver los logs:
+
+journalctl -u integrationpos.service -f
+
+
+
+Los comandos adicionales son para reiniciar el servicio:
+
+sudo systemctl restart integrationpos.service
+sudo systemctl stop integrationpos.service
+

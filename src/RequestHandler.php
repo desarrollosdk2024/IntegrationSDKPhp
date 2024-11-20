@@ -5,6 +5,7 @@ namespace IntegrationPos;
 use IntegrationPos\Util\Extensions;
 use React\Promise\PromiseInterface;
 use Fig\Http\Message\StatusCodeInterface as StatusCode;
+use IntegrationPos\Util\Logger;
 
 class RequestHandler
 {
@@ -39,7 +40,7 @@ class RequestHandler
             'Device' => $body['Device'],
             'Importe' => sprintf('%.2f', $body['Importe']),
             'Response' => function ($result) use ($response) {
-                Extensions::logger("Message: " . $result->Message);
+                Logger::info("Message: " . $result->Message);
                 if ($result->Status == "error") {
                     return $response(StatusCode::STATUS_BAD_REQUEST, $result);
                 } else {
@@ -68,7 +69,7 @@ class RequestHandler
             'Device' => $body['Device'],
             'Importe' => sprintf('%.2f', $body['Importe']),
             'Response' => function ($result) use ($response) {
-                Extensions::logger("Message: " . $result->Message);
+                Logger::info("Message: " . $result->Message);
                if ($result->Status == "error") {
                     return $response(StatusCode::STATUS_BAD_REQUEST, $result);
                 } else {
@@ -97,7 +98,7 @@ class RequestHandler
             //'Data' => $body['Data'] ?? '',
             'Importe' => sprintf('%.2f', $body['Importe']),
             'Response' => function ($result) use ($response) {
-                Extensions::logger("Message: " . $result->Message);
+                Logger::info("Message: " . $result->Message);
                 if ($result->Status == "error") {
                     return $response(StatusCode::STATUS_BAD_REQUEST, $result);
                 } else {
@@ -121,7 +122,7 @@ class RequestHandler
             'Logger' => $this->logger,
             'Device' => $body['Device'],
             'Response' => function ($result) use ($response) {
-                Extensions::logger("Message: " . $result->Message);
+                Logger::info("Message: " . $result->Message);
                  if ($result->Status == "error") {
                     return $response(StatusCode::STATUS_BAD_REQUEST, $result);
                 } else {
@@ -146,7 +147,7 @@ class RequestHandler
             'Logger' => $this->logger,
             'Device' => $body['Device'],
             'Response' => function ($result) use ($response) {
-                Extensions::logger("Message: " . $result->Message);
+                Logger::info("Message: " . $result->Message);
                  if ($result->Status == "error") {
                     return $response(StatusCode::STATUS_BAD_REQUEST, $result);
                 } else {
@@ -174,7 +175,7 @@ class RequestHandler
             'Device' => $body['Device'],
             'Reference' => $body['Reference'],
             'Response' => function ($result) use ($response) {
-                Extensions::logger("Message: " . $result->Message);
+                Logger::info("Message: " . $result->Message);
                  if ($result->Status == "error") {
                     return $response(StatusCode::STATUS_BAD_REQUEST, $result);
                 } else {

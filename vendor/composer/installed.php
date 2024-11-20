@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'integration/integration-pos',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'name' => 'integration-pos/service-tcp-ip',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '6431b85f8313cec9b26ed07f8de5b4f78504282d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -28,10 +28,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'integration/integration-pos' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+        'integration-pos/service-tcp-ip' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '6431b85f8313cec9b26ed07f8de5b4f78504282d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
